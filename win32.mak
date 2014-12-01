@@ -22,7 +22,7 @@ LFLAGS=-L/map/co
 SRC= $S\bitarray.d $S\regexp.d $S\datebase.d $S\date.d $S\dateparse.d
 
 
-SOURCE= $(SRC) win32.mak posix.mak LICENSE README.md
+SOURCE= $(SRC) win32.mak posix.mak LICENSE README.md dub.json
 
 all: $B\$(TARGET).lib
 
