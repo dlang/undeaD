@@ -1,8 +1,8 @@
 {
-    "name": "undeaD",
+    "name": "undead",
     "description": "Obsolete Phobos modules, back from the dead",
     "authors": ["various"],
-    "homepage": "https://github.com/DigitalMars/undeaD",
+    "homepage": "https://github.com/DigitalMars/undead",
     "license": "BSL-1.0",
     "targetType": "library",
     "targetName": "undead",
