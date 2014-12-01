@@ -1,3 +1,7 @@
+.B*
+*.bak
+*.lst
+
 # Object files
 *.o
 *.ko
