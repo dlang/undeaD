@@ -2578,7 +2578,7 @@ private:
             break;
         }
 
-        enum RS { start, rliteral, dash };
+        enum RS { start, rliteral, dash }
         RS rs;
 
         rs = RS.start;
