@@ -5,8 +5,5 @@
     "homepage": "https://github.com/DigitalMars/undead",
     "license": "BSL-1.0",
     "targetType": "library",
-    "targetName": "undead",
     "targetPath": "bin",
-    "sourcePaths": ["src/undead"],
-    "importPaths": ["src/undead"],
 }
