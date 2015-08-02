@@ -271,7 +271,7 @@ private:
             short value;
         }
 
-        static immutable DateID dateidtab[] =
+        static immutable DateID[] dateidtab =
         [
             {   "january",      DP.month,       1},
             {   "february",     DP.month,       2},
