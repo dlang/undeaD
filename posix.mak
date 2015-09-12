@@ -19,7 +19,8 @@ LFLAGS=-L/map/co
 .d.obj :
 	$(DMD) -c $(DFLAGS) $*
 
-SRC= $S/bitarray.d $S/regexp.d $S/datebase.d $S/date.d $S/dateparse.d
+SRC= $S/bitarray.d $S/regexp.d $S/datebase.d $S/date.d $S/dateparse.d \
+	 $S/cstream.d $S/stream.d $S/socketstream.d
 
 
 SOURCE= $(SRC) win32.mak posix.mak LICENSE README.md dub.json
