@@ -10,3 +10,4 @@ Current modules included:
 * std.datebase
 * std.dateparse
 * std.regexp
+* std.stream and friends
