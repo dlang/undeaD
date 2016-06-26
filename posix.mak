@@ -53,3 +53,8 @@ detab:
 zip: detab tolf $(SOURCE)
 	$(DEL) undead.zip
 	zip undead $(SOURCE)
+
+gitzip:
+	git archive --format=zip HEAD > undead.zip
+
+
