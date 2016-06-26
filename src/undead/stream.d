@@ -78,13 +78,14 @@ private {
   import std.conv;
   import std.algorithm;
   import std.ascii;
-  import std.format;
+  //import std.format;
   import std.system;    // for Endian enumeration
   import std.utf;
   import core.bitop; // for bswap
   import core.vararg;
   import std.file;
   import undead.internal.file;
+  import undead.doformat;
 }
 
 /// InputStream is the interface for readable streams.
