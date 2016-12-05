@@ -83,7 +83,7 @@ private {
   import std.utf;
   import core.bitop; // for bswap
   import core.vararg;
-  import std.file;
+  static import std.file;
   import undead.internal.file;
   import undead.doformat;
 }
@@ -1433,11 +1433,11 @@ class Stream : InputStream, OutputStream {
   unittest { // unit test for Issue 3363
     import std.stdio;
     immutable fileName = undead.internal.file.deleteme ~ "-issue3363.txt";
-    auto w = File(fileName, "w");
-    scope (exit) remove(fileName.ptr);
+    auto w = std.stdio.File(fileName, "w");
+    scope (exit) std.file.remove(fileName);
     w.write("one two three");
     w.close();
-    auto r = File(fileName, "r");
+    auto r = std.stdio.File(fileName, "r");
     const(char)[] constChar;
     string str;
     char[] chars;
@@ -2208,7 +2208,7 @@ class File: Stream {
     assert( lines[2] == "");
     assert( lines[3] == "That was blank");
     file.close();
-    remove(stream_file.tempCString());
+    std.file.remove(stream_file);
   }
 }
 
@@ -2303,7 +2303,7 @@ class BufferedFile: BufferedStream {
     // we must be at the end of file
     assert(file.eof);
     file.close();
-    remove(stream_file.tempCString());
+    std.file.remove(stream_file);
   }
 
 }
