@@ -821,7 +821,7 @@ d_time parse(string s)
         auto result = makeDate(day,time);
         return timeClip(result);
     }
-    catch
+    catch (Exception e)
     {
         return d_time_nan;                // erroneous date string
     }
