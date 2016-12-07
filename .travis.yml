@@ -7,11 +7,5 @@ os:
 d:
   - dmd
   - ldc
-  - gdc
-
-matrix:
-  - allow_failures:
-    - os: osx
-      d: gdc
 
 sudo: false
