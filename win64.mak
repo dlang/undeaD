@@ -11,7 +11,7 @@ B=bin
 
 TARGET=undead
 
-DFLAGS=-g -Isrc/
+DFLAGS=-m64 -g -Isrc/
 LFLAGS=-L/map/co
 #DFLAGS=
 #LFLAGS=

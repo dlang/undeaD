@@ -31,3 +31,10 @@
 *.i*86
 *.x86_64
 *.hex
+
+# Extra dirs/build files
+bin
+obj
+.dub
+.vs
+undead.sln
