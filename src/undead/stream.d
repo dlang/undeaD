@@ -1979,7 +1979,7 @@ class File: Stream {
     readable = cast(bool)(mode & FileMode.In);
     writeable = cast(bool)(mode & FileMode.Out);
     version (Windows) {
-      hFile = CreateFileW(filename.tempCStringW(), access, share,
+      hFile = CreateFileW(filename.tempCString!wchar(), access, share,
                           null, createMode, 0, null);
       isopen = hFile != INVALID_HANDLE_VALUE;
     }

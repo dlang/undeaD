@@ -1321,7 +1321,7 @@ unittest
 
     void myPrint(...)
     {
-        std.format.doFormat(&putc, _arguments, _argptr);
+        undead.doformat.doFormat(&putc, _arguments, _argptr);
     }
 
     myPrint("The answer is %s:", 27, 6);
