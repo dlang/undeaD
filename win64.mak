@@ -3,7 +3,7 @@
 # Needs Digital Mars D compiler to build, available free from:
 # http://www.digitalmars.com/d/
 
-DMD=dmd
+DMD?=dmd
 DEL=del
 S=src\undead
 O=obj
