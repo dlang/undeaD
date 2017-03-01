@@ -3,7 +3,7 @@
 # Needs Digital Mars D compiler to build, available free from:
 # http://www.digitalmars.com/d/
 
-DMD?=dmd
+DC?=dmd
 DEL=del
 S=src\undead
 O=obj
@@ -17,7 +17,7 @@ LFLAGS=-L/map/co
 #LFLAGS=
 
 .d.obj :
-	$(DMD) -c $(DFLAGS) $*
+	$(DC) -c $(DFLAGS) $*
 
 SRC= $S\bitarray.d $S\regexp.d $S\datebase.d $S\date.d $S\dateparse.d \
 	 $S\cstream.d $S\stream.d $S\socketstream.d $S\doformat.d $S\internal\file.d
@@ -29,11 +29,11 @@ all: $B\$(TARGET).lib
 #################################################
 
 $B\$(TARGET).lib : $(SRC)
-	$(DMD) -lib -of$B\$(TARGET).lib $(SRC) $(DFLAGS)
+	$(DC) -lib -of$B\$(TARGET).lib $(SRC) $(DFLAGS)
 
 
 unittest :
-	$(DMD) -unittest -main -cov -of$O\unittest.exe $(SRC) $(DFLAGS)
+	$(DC) -unittest -main -cov -of$O\unittest.exe $(SRC) $(DFLAGS)
 	$O\unittest.exe
 
 

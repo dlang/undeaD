@@ -3,7 +3,7 @@
 # Needs Digital Mars D compiler to build, available free from:
 # http://www.digitalmars.com/d/
 
-DMD?=dmd
+DC?=dmd
 DEL=rm
 S=src/undead
 O=obj
@@ -17,7 +17,7 @@ LFLAGS=-L/map/co
 #LFLAGS=
 
 .d.obj :
-	$(DMD) -c $(DFLAGS) $*
+	$(DC) -c $(DFLAGS) $*
 
 SRC= $S/bitarray.d $S/regexp.d $S/datebase.d $S/date.d $S/dateparse.d \
 	 $S/cstream.d $S/stream.d $S/socketstream.d $S/doformat.d
@@ -30,11 +30,11 @@ all: $B/$(TARGET).a
 #################################################
 
 $B/$(TARGET).a : $(SRC)
-	$(DMD) -lib -of$B/$(TARGET).a $(SRC) $(DFLAGS)
+	$(DC) -lib -of$B/$(TARGET).a $(SRC) $(DFLAGS)
 
 
 unittest :
-	$(DMD) -unittest -main -cov -of$O/unittest $(SRC) $(DFLAGS)
+	$(DC) -unittest -main -cov -of$O/unittest $(SRC) $(DFLAGS)
 	$O/unittest
 
 
@@ -56,5 +56,3 @@ zip: detab tolf $(SOURCE)
 
 gitzip:
 	git archive --format=zip HEAD > undead.zip
-
-
