@@ -13,3 +13,8 @@ Current modules included:
 * std.dateparse
 * std.regexp
 * std.stream and friends
+
+Some individual functions have been moved here rather than full Phobos modules. They are
+
+* undead.doformat: Contains the `doFormat` function from std.format
+* undead.string: Contains regex style pattern matching functions from std.string
