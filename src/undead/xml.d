@@ -18,7 +18,7 @@ make them do pretty much whatever you want.
 Example: This example creates a DOM (Document Object Model) tree
     from an XML file.
 ------------------------------------------------------------------------------
-import std.xml;
+import undead.xml;
 import std.stdio;
 import std.string;
 import std.file;
@@ -47,7 +47,7 @@ Example: This example does much the same thing, except that the file is
     deconstructed and reconstructed by hand. This is more work, but the
     techniques involved offer vastly more power.
 ------------------------------------------------------------------------------
-import std.xml;
+import undead.xml;
 import std.stdio;
 import std.string;
 
@@ -123,7 +123,7 @@ Distributed under the Boost Software License, Version 1.0.
    (See accompanying file LICENSE_1_0.txt or copy at
          http://www.boost.org/LICENSE_1_0.txt)
 */
-module std.xml;
+module undead.xml;
 
 enum cdata = "<![CDATA[";
 
@@ -326,7 +326,7 @@ bool isExtender(dchar c) @safe @nogc nothrow pure
  * encode() escapes certain characters (ampersand, quote, apostrophe, less-than
  * and greater-than), and similarly, decode() unescapes them. These functions
  * are provided for convenience only. You do not need to use them when using
- * the std.xml classes, because then all the encoding and decoding will be done
+ * the undead.xml classes, because then all the encoding and decoding will be done
  * for you automatically.
  *
  * If the string is not modified, the original will be returned.
@@ -402,7 +402,7 @@ enum DecodeMode
  * encode() escapes certain characters (ampersand, quote, apostrophe, less-than
  * and greater-than), and similarly, decode() unescapes them. These functions
  * are provided for convenience only. You do not need to use them when using
- * the std.xml classes, because then all the encoding and decoding will be done
+ * the undead.xml classes, because then all the encoding and decoding will be done
  * for you automatically.
  *
  * This function decodes the entities &amp;amp;, &amp;quot;, &amp;apos;,

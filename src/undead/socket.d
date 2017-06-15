@@ -42,7 +42,7 @@
  * Source:  $(PHOBOSSRC std/_socket.d)
  */
 
-module std.socket;
+module undead.socket;
 
 import core.stdc.stdint, core.stdc.stdlib, core.stdc.string, std.conv, std.string;
 
@@ -134,13 +134,13 @@ version(unittest)
             test();
         catch (Throwable e)
         {
-            writefln(" --- std.socket(%d) test fails depending on environment ---", line);
+            writefln(" --- undead.socket(%d) test fails depending on environment ---", line);
             writefln(" (%s)", e);
         }
     }
 }
 
-/// Base exception thrown by $(D std.socket).
+/// Base exception thrown by $(D undead.socket).
 class SocketException: Exception
 {
     mixin basicExceptionCtors;
@@ -149,7 +149,7 @@ class SocketException: Exception
 
 /*
  * Needs to be public so that SocketOSException can be thrown outside of
- * std.socket (since it uses it as a default argument), but it probably doesn't
+ * undead.socket (since it uses it as a default argument), but it probably doesn't
  * need to actually show up in the docs, since there's not really any public
  * need for it outside of being a default argument.
  */

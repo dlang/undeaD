@@ -61,7 +61,7 @@
  *          http://www.boost.org/LICENSE_1_0.txt)
  */
 
-module std.signals;
+module undead.signals;
 
 import core.exception : onOutOfMemoryError;
 import core.stdc.stdlib : calloc, realloc, free;
@@ -278,7 +278,7 @@ mixin template Signal(T1...)
 ///
 @system unittest
 {
-    import std.signals;
+    import undead.signals;
 
     int observedMessageCounter = 0;
 

@@ -38,7 +38,7 @@
 module undead.socketstream;
 
 private import undead.stream;
-private import std.socket;
+private import undead.socket;
 
 /**************
  * $(D SocketStream) is a stream for a blocking,
