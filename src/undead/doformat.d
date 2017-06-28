@@ -403,7 +403,7 @@ void main()
  */
 void doFormat()(scope void delegate(dchar) putc, TypeInfo[] arguments, va_list ap)
 {
-    import std.utf : toUCSindex, isValidDchar, UTFException, toUTF8;
+    import std.utf : encode, toUCSindex, isValidDchar, UTFException, toUTF8;
     import core.stdc.string : strlen;
     import core.stdc.stdlib : alloca, malloc, realloc, free;
     import core.stdc.stdio : snprintf;
@@ -762,7 +762,7 @@ void doFormat()(scope void delegate(dchar) putc, TypeInfo[] arguments, va_list a
                 {   if (!isValidDchar(vdchar))
                         throw new UTFException("invalid dchar in format");
                     char[4] vbuf;
-                    putstr(toUTF8(vbuf, vdchar));
+                    putstr(vbuf[0 .. encode(vbuf, vdchar)]);
                 }
                 return;
 
