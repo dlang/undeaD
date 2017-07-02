@@ -5,7 +5,10 @@ os:
   - osx
 
 d:
+  - dmd-nightly
+  - dmd-beta
   - dmd
+  - ldc-beta
   - ldc
 
 sudo: false

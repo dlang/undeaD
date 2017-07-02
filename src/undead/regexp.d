@@ -138,7 +138,7 @@ private
     import std.stdio;
     import std.string;
     import std.ascii;
-    import std.outbuffer;
+    import undead.outbuffer;
     import std.bitmanip;
     import std.utf;
     import std.algorithm;
