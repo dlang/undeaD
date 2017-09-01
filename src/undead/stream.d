@@ -393,7 +393,7 @@ class Stream : InputStream, OutputStream {
   // stream abilities
   bool readable = false;        /// Indicates whether this stream can be read from.
   bool writeable = false;       /// Indicates whether this stream can be written to.
-  bool seekable = false;        /// Indicates whether this stream can be seeked within.
+  bool seekable = false;        /// Indicates whether this stream can be sought within.
   protected bool isopen = true; /// Indicates whether this stream is open.
 
   protected bool readEOF = false; /** Indicates whether this stream is at eof
