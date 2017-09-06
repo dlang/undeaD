@@ -930,12 +930,6 @@ void doFormat()(scope void delegate(dchar) putc, TypeInfo[] arguments, va_list a
                 }
                 assert(0);
 
-            case Mangle.Ttypedef:
-                ti = (cast(TypeInfo_Typedef)ti).base;
-                m = cast(Mangle)typeid(ti).name[9];
-                formatArg(fc);
-                return;
-
             case Mangle.Tenum:
                 ti = (cast(TypeInfo_Enum)ti).base;
                 m = cast(Mangle)typeid(ti).name[9];
