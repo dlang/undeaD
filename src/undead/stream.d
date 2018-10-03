@@ -2845,7 +2845,7 @@ class MmFileStream : TArrayStream!(MmFile) {
   override void close() {
     if (isopen) {
       super.close();
-      delete buf;
+      buf.destroy();
       buf = null;
     }
   }
