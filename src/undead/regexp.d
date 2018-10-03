@@ -594,8 +594,10 @@ RegExp search(string s, string pattern, string attributes = null)
 {
     auto r = new RegExp(pattern, attributes);
     if (!r.test(s))
-    {   r.destroy();
-        assert(r is null);
+    {
+      r.destroy();
+      r = null;
+      assert(r is null);
     }
     return r;
 }
