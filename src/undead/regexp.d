@@ -3018,7 +3018,7 @@ private:
                 else
                     maxb = r.maxb;
                 for (b = 0; b < maxb; b++)
-                    r.base[b] |= ~prog[i + 1 + 4 + b];
+                    r.base[b] |= ~cast(int)prog[i + 1 + 4 + b];
                 return 1;
 
             case REbol:
