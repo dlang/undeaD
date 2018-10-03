@@ -208,7 +208,7 @@ string sub(string s, string pattern, string format, string attributes = null)
 {
     auto r = new RegExp(pattern, attributes);
     auto result = r.replace(s, format);
-    delete r;
+    r.destroy();
     return result;
 }
 
@@ -290,7 +290,7 @@ string sub(string s, string pattern, string delegate(RegExp) dg, string attribut
         else
             break;
     }
-    delete r;
+    r.destroy();
 
     return result;
 }
@@ -367,7 +367,7 @@ sizediff_t
 find(string s, string pattern, string attributes = null)
 {
     auto r = new RegExp(pattern, attributes);
-    scope(exit) delete r;
+    scope(exit) r.destroy();
     return r.test(s) ? r.pmatch[0].rm_so : -1;
 }
 
@@ -457,7 +457,7 @@ rfind(string s, string pattern, string attributes = null)
         else
             lastindex = eo;
     }
-    delete r;
+    r.destroy();
     return i;
 }
 
@@ -541,7 +541,7 @@ string[] split(string s, string pattern, string attributes = null)
 {
     auto r = new RegExp(pattern, attributes);
     auto result = r.split(s);
-    delete r;
+    r.destroy();
     return result;
 }
 
@@ -594,7 +594,7 @@ RegExp search(string s, string pattern, string attributes = null)
 {
     auto r = new RegExp(pattern, attributes);
     if (!r.test(s))
-    {   delete r;
+    {   r.destroy();
         assert(r is null);
     }
     return r;
@@ -936,7 +936,7 @@ private:
         //optimize();
         program = buf.data;
         buf.data = null;
-        delete buf;
+        buf.destroy();
 
         if (re_nsub > oldre_nsub)
         {
