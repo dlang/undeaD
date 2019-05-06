@@ -7,7 +7,7 @@ os:
 d:
   - dmd
   - dmd-beta
-  # - dmd-nightly (disabled until nightlies.dlang.org is back online)
+  - dmd-nightly
   - ldc
   - ldc-beta
 
