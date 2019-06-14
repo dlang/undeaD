@@ -5,5 +5,5 @@
     "homepage": "https://github.com/dlang/undeaD",
     "license": "BSL-1.0",
     "targetType": "library",
-    "targetPath": "bin",
+    "targetPath": "bin"
 }
