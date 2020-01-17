@@ -13,6 +13,7 @@ Current modules included:
 * std.dateparse
 * std.regexp
 * std.stream and friends
+* std.xml
 
 Some individual functions have been moved here rather than full Phobos modules. They are
 
