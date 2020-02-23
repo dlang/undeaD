@@ -1415,7 +1415,7 @@ public bool test(string s)
             printf("printProgram()\n");
             for (size_t pc = 0; pc < prog.length; )
             {
-                printf("%3d: ", pc);
+                printf("%3d: ", cast(int)pc);
 
                 //printf("prog[pc] = %d, REchar = %d, REnmq = %d\n", prog[pc], REchar, REnmq);
                 switch (prog[pc])
@@ -1448,14 +1448,14 @@ public bool test(string s)
                 case REstring:
                     len = *cast(size_t *)&prog[pc + 1];
                     str = (cast(char*)&prog[pc + 1 + size_t.sizeof])[0 .. len];
-                    printf("\tREstring x%x, '%.*s'\n", len, str.length, str.ptr);
+                    printf("\tREstring x%x, '%.*s'\n", cast(int)len, cast(int)str.length, str.ptr);
                     pc += 1 + size_t.sizeof + len * rchar.sizeof;
                     break;
 
                 case REistring:
                     len = *cast(size_t *)&prog[pc + 1];
                     str = (cast(char*)&prog[pc + 1 + size_t.sizeof])[0 .. len];
-                    printf("\tREistring x%x, '%.*s'\n", len, str.length, str.ptr);
+                    printf("\tREistring x%x, '%.*s'\n", cast(int)len, cast(int)str.length, str.ptr);
                     pc += 1 + size_t.sizeof + len * rchar.sizeof;
                     break;
 
@@ -1469,7 +1469,7 @@ public bool test(string s)
                 case REbit:
                     pu = cast(ushort *)&prog[pc + 1];
                     len = pu[1];
-                    printf("\tREbit cmax=%02x, len=%d:", pu[0], len);
+                    printf("\tREbit cmax=%02x, len=%d:", pu[0], cast(int)len);
                     for (n = 0; n < len; n++)
                         printf(" %02x", prog[pc + 1 + 2 * ushort.sizeof + n]);
                     printf("\n");
@@ -1485,14 +1485,14 @@ public bool test(string s)
 
                 case RErange:
                     len = *cast(uint *)&prog[pc + 1];
-                    printf("\tRErange %d\n", len);
+                    printf("\tRErange %d\n", cast(int)len);
                     // BUG: REAignoreCase?
                     pc += 1 + uint.sizeof + len;
                     break;
 
                 case REnotrange:
                     len = *cast(uint *)&prog[pc + 1];
-                    printf("\tREnotrange %d\n", len);
+                    printf("\tREnotrange %d\n", cast(int)len);
                     // BUG: REAignoreCase?
                     pc += 1 + uint.sizeof + len;
                     break;
@@ -1509,13 +1509,13 @@ public bool test(string s)
 
                 case REor:
                     len = *cast(uint *)&prog[pc + 1];
-                    printf("\tREor %d, pc=>%d\n", len, pc + 1 + uint.sizeof + len);
+                    printf("\tREor %d, pc=>%d\n", cast(int)len, cast(int)(pc + 1 + uint.sizeof + len));
                     pc += 1 + uint.sizeof;
                     break;
 
                 case REgoto:
                     len = *cast(uint *)&prog[pc + 1];
-                    printf("\tREgoto %d, pc=>%d\n", len, pc + 1 + uint.sizeof + len);
+                    printf("\tREgoto %d, pc=>%d\n", cast(int)len, cast(int)(pc + 1 + uint.sizeof + len));
                     pc += 1 + uint.sizeof;
                     break;
 
@@ -1533,7 +1533,7 @@ public bool test(string s)
                     m = puint[2];
                     printf("\tREnm%s len=%d, n=%u, m=%u, pc=>%d\n",
                             (prog[pc] == REnmq) ? "q".ptr : " ".ptr,
-                            len, n, m, pc + 1 + uint.sizeof * 3 + len);
+                            cast(int)len, n, m, cast(int)(pc + 1 + uint.sizeof * 3 + len));
                     pc += 1 + uint.sizeof * 3;
                     break;
 
@@ -1542,7 +1542,7 @@ public bool test(string s)
                     puint = cast(uint *)&prog[pc + 1];
                     len = puint[0];
                     n = puint[1];
-                    printf("\tREparen len=%d n=%d, pc=>%d\n", len, n, pc + 1 + uint.sizeof * 2 + len);
+                    printf("\tREparen len=%d n=%d, pc=>%d\n", cast(int)len, n, cast(int)(pc + 1 + uint.sizeof * 2 + len));
                     pc += 1 + uint.sizeof * 2;
                     break;
 
