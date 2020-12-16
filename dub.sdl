@@ -1,0 +1,10 @@
+name "undead"
+description "Obsolete Phobos modules, back from the dead"
+homepage "https://github.com/dlang/undeaD"
+authors "various"
+license "BSL-1.0"
+targetType "library"
+targetPath "bin"
+buildType "unittest" {
+    buildOptions "debugMode" "debugInfo" "unittests" "deprecationErrors" "warningsAsErrors"
+}
