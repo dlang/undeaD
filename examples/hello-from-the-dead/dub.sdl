@@ -1,0 +1,7 @@
+name "hello-from-the-dead"
+description "A test program that uses undeaD"
+authors "Petar Kirov"
+copyright "Copyright © 2020, Petar Kirov"
+license "BSL-1.0"
+dependency "undead" version="*" path="../.."
+targetPath "bin"
