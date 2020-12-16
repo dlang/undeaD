@@ -473,7 +473,7 @@ struct BitArray
     /***************************************
      * Support for unary operator ~ for bit arrays.
      */
-    BitArray opCom()
+    BitArray opUnary(string op : "~")()
     {
         auto dim = this.dim();
 
@@ -489,7 +489,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opCom unittest\n");
+        debug(bitarray) printf("BitArray.opUnary unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
 
@@ -507,7 +507,7 @@ struct BitArray
     /***************************************
      * Support for binary operator & for bit arrays.
      */
-    BitArray opAnd(BitArray e2)
+    BitArray opBinary(string op : "&")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -526,7 +526,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opAnd unittest\n");
+        debug(bitarray) printf("BitArray.opBinary unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -547,7 +547,7 @@ struct BitArray
     /***************************************
      * Support for binary operator | for bit arrays.
      */
-    BitArray opOr(BitArray e2)
+    BitArray opBinary(string op : "|")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -566,7 +566,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opOr unittest\n");
+        debug(bitarray) printf("BitArray.opBinary unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -587,7 +587,7 @@ struct BitArray
     /***************************************
      * Support for binary operator ^ for bit arrays.
      */
-    BitArray opXor(BitArray e2)
+    BitArray opBinary(string op : "^")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -606,7 +606,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opXor unittest\n");
+        debug(bitarray) printf("BitArray.opBinary unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -629,7 +629,7 @@ struct BitArray
      *
      * $(I a - b) for BitArrays means the same thing as $(I a &amp; ~b).
      */
-    BitArray opSub(BitArray e2)
+    BitArray opBinary(string op : "-")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -648,7 +648,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opSub unittest\n");
+        debug(bitarray) printf("BitArray.opBinary unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -669,7 +669,7 @@ struct BitArray
     /***************************************
      * Support for operator &= bit arrays.
      */
-    BitArray opAndAssign(BitArray e2)
+    BitArray opOpAssign(string op : "&")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -685,7 +685,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opAndAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -705,7 +705,7 @@ struct BitArray
     /***************************************
      * Support for operator |= for bit arrays.
      */
-    BitArray opOrAssign(BitArray e2)
+    BitArray opOpAssign(string op : "|")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -721,7 +721,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opOrAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -740,7 +740,7 @@ struct BitArray
     /***************************************
      * Support for operator ^= for bit arrays.
      */
-    BitArray opXorAssign(BitArray e2)
+    BitArray opOpAssign(string op : "^")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -756,7 +756,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opXorAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -777,7 +777,7 @@ struct BitArray
      *
      * $(I a -= b) for BitArrays means the same thing as $(I a &amp;= ~b).
      */
-    BitArray opSubAssign(BitArray e2)
+    BitArray opOpAssign(string op : "-")(BitArray e2)
     in
     {
         assert(len == e2.length);
@@ -793,7 +793,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opSubAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
         static bool[] bb = [1,0,1,1,0];
@@ -813,7 +813,7 @@ struct BitArray
      * Support for operator ~= for bit arrays.
      */
 
-    BitArray opCatAssign(bool b)
+    BitArray opOpAssign(string op : "~")(bool b)
     {
         length = len + 1;
         (this)[len - 1] = b;
@@ -822,7 +822,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opCatAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0,1,0,1];
 
@@ -844,7 +844,7 @@ struct BitArray
      * ditto
      */
 
-    BitArray opCatAssign(BitArray b)
+    BitArray opOpAssign(string op : "~")(BitArray b)
     {
         auto istart = len;
         length = len + b.length;
@@ -855,7 +855,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opCatAssign unittest\n");
+        debug(bitarray) printf("BitArray.opOpAssign unittest\n");
 
         static bool[] ba = [1,0];
         static bool[] bb = [0,1,0];
@@ -878,7 +878,7 @@ struct BitArray
     /***************************************
      * Support for binary operator ~ for bit arrays.
      */
-    BitArray opCat(bool b)
+    BitArray opBinary(string op : "~")(bool b)
     {
         auto r = this.dup;
         r.length = len + 1;
@@ -887,7 +887,7 @@ struct BitArray
     }
 
     /** ditto */
-    BitArray opCat_r(bool b)
+    BitArray opBinaryRight(string op : "~")(bool b)
     {
         BitArray r;
 
@@ -899,7 +899,7 @@ struct BitArray
     }
 
     /** ditto */
-    BitArray opCat(BitArray b)
+    BitArray opBinary(string op : "~")(BitArray b)
     {
         BitArray r;
 
@@ -910,7 +910,7 @@ struct BitArray
 
     unittest
     {
-        debug(bitarray) printf("BitArray.opCat unittest\n");
+        debug(bitarray) printf("BitArray.opBinary unittest\n");
 
         static bool[] ba = [1,0];
         static bool[] bb = [0,1,0];

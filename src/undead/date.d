@@ -687,7 +687,7 @@ string UTCtoString(d_time time)
             dateFromTime(t),
             hourFromTime(t), minFromTime(t), secFromTime(t),
             sign, hr, mn,
-            cast(long)yearFromTime(t));
+            cast(int)yearFromTime(t));
 
     // Ensure no buggy buffer overflows
     //printf("len = %d, buffer.length = %d\n", len, buffer.length);
@@ -748,7 +748,7 @@ string toDateString(d_time time)
         &daystr[weekDay(t) * 3],
         &monstr[monthFromTime(t) * 3],
         dateFromTime(t),
-        cast(long)yearFromTime(t));
+        cast(int)yearFromTime(t));
 
     // Ensure no buggy buffer overflows
     assert(len < buffer.length);
