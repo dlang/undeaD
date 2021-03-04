@@ -565,7 +565,7 @@ in
     assert(0 <= weekday && weekday <= 6);
     assert(1 <= n && n <= 5);
 }
-body
+do
 {
     // Get day of the first of the month
     auto x = makeDay(year, month - 1, 1);

@@ -60,7 +60,7 @@ struct BitArray
     {
         assert(i < len);
     }
-    body
+    do
     {
         return cast(bool)bt(ptr, i);
     }
@@ -71,7 +71,7 @@ struct BitArray
     {
         assert(i < len);
     }
-    body
+    do
     {
         if (b)
             bts(ptr, i);
@@ -183,7 +183,7 @@ struct BitArray
         {
             assert(result == this);
         }
-        body
+        do
         {
             if (len >= 2)
             {
@@ -228,7 +228,7 @@ struct BitArray
         {
             assert(result == this);
         }
-        body
+        do
         {
             if (len >= 2)
             {
@@ -419,7 +419,7 @@ struct BitArray
         assert(numbits <= v.length * 8);
         assert((v.length & 3) == 0);
     }
-    body
+    do
     {
         ptr = cast(typeof(ptr))v.ptr;
         len = numbits;
@@ -512,7 +512,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -552,7 +552,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -592,7 +592,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -634,7 +634,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -674,7 +674,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -710,7 +710,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -745,7 +745,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 
@@ -782,7 +782,7 @@ struct BitArray
     {
         assert(len == e2.length);
     }
-    body
+    do
     {
         auto dim = this.dim();
 

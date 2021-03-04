@@ -2752,7 +2752,7 @@ private:
     {
         assert(p < pattern.length);
     }
-    body
+    do
     {   int c;
         int i;
         rchar tc;
