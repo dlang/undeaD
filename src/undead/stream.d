@@ -126,12 +126,6 @@ interface InputStream {
   void read(out float x);       /// ditto
   void read(out double x);      /// ditto
   void read(out real x);        /// ditto
-  void read(out ifloat x);      /// ditto
-  void read(out idouble x);     /// ditto
-  void read(out ireal x);       /// ditto
-  void read(out cfloat x);      /// ditto
-  void read(out cdouble x);     /// ditto
-  void read(out creal x);       /// ditto
   void read(out char x);        /// ditto
   void read(out wchar x);       /// ditto
   void read(out dchar x);       /// ditto
@@ -288,12 +282,6 @@ interface OutputStream {
   void write(float x);          /// ditto
   void write(double x);         /// ditto
   void write(real x);           /// ditto
-  void write(ifloat x);         /// ditto
-  void write(idouble x);        /// ditto
-  void write(ireal x);          /// ditto
-  void write(cfloat x);         /// ditto
-  void write(cdouble x);        /// ditto
-  void write(creal x);          /// ditto
   void write(char x);           /// ditto
   void write(wchar x);          /// ditto
   void write(dchar x);          /// ditto
@@ -447,12 +435,6 @@ class Stream : InputStream, OutputStream {
   void read(out float x) { readExact(&x, x.sizeof); }
   void read(out double x) { readExact(&x, x.sizeof); }
   void read(out real x) { readExact(&x, x.sizeof); }
-  void read(out ifloat x) { readExact(&x, x.sizeof); }
-  void read(out idouble x) { readExact(&x, x.sizeof); }
-  void read(out ireal x) { readExact(&x, x.sizeof); }
-  void read(out cfloat x) { readExact(&x, x.sizeof); }
-  void read(out cdouble x) { readExact(&x, x.sizeof); }
-  void read(out creal x) { readExact(&x, x.sizeof); }
   void read(out char x) { readExact(&x, x.sizeof); }
   void read(out wchar x) { readExact(&x, x.sizeof); }
   void read(out dchar x) { readExact(&x, x.sizeof); }
@@ -1113,12 +1095,6 @@ class Stream : InputStream, OutputStream {
   void write(float x) { writeExact(&x, x.sizeof); }
   void write(double x) { writeExact(&x, x.sizeof); }
   void write(real x) { writeExact(&x, x.sizeof); }
-  void write(ifloat x) { writeExact(&x, x.sizeof); }
-  void write(idouble x) { writeExact(&x, x.sizeof); }
-  void write(ireal x) { writeExact(&x, x.sizeof); }
-  void write(cfloat x) { writeExact(&x, x.sizeof); }
-  void write(cdouble x) { writeExact(&x, x.sizeof); }
-  void write(creal x) { writeExact(&x, x.sizeof); }
   void write(char x) { writeExact(&x, x.sizeof); }
   void write(wchar x) { writeExact(&x, x.sizeof); }
   void write(dchar x) { writeExact(&x, x.sizeof); }
@@ -2469,12 +2445,6 @@ class EndianStream : FilterStream {
   override void read(out float x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
   override void read(out double x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
   override void read(out real x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
-  override void read(out ifloat x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
-  override void read(out idouble x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
-  override void read(out ireal x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
-  override void read(out cfloat x) { readExact(&x, x.sizeof); fixBlockBO(&x,float.sizeof,2); }
-  override void read(out cdouble x) { readExact(&x, x.sizeof); fixBlockBO(&x,double.sizeof,2); }
-  override void read(out creal x) { readExact(&x, x.sizeof); fixBlockBO(&x,real.sizeof,2); }
   override void read(out char x) { readExact(&x, x.sizeof); }
   override void read(out wchar x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
   override void read(out dchar x) { readExact(&x, x.sizeof); fixBO(&x,x.sizeof); }
@@ -2524,12 +2494,6 @@ class EndianStream : FilterStream {
   override void write(float x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
   override void write(double x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
   override void write(real x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
-  override void write(ifloat x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
-  override void write(idouble x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
-  override void write(ireal x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
-  override void write(cfloat x) { fixBlockBO(&x,float.sizeof,2); writeExact(&x, x.sizeof); }
-  override void write(cdouble x) { fixBlockBO(&x,double.sizeof,2); writeExact(&x, x.sizeof); }
-  override void write(creal x) { fixBlockBO(&x,real.sizeof,2); writeExact(&x, x.sizeof);  }
   override void write(char x) { writeExact(&x, x.sizeof); }
   override void write(wchar x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
   override void write(dchar x) { fixBO(&x,x.sizeof); writeExact(&x, x.sizeof); }
