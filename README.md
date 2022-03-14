@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/dlang/undeaD.svg?branch=master)](https://travis-ci.org/dlang/undeaD)
-
 undeaD
 ======
 
