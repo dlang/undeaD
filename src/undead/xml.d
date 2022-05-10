@@ -2955,7 +2955,7 @@ private alias Err = CheckException;
 
 private
 {
-    inout(T) toType(T)(inout Object o)
+    inout(T) toType(T)(inout return scope Object o)
     {
         T t = cast(T)(o);
         if (t is null)
