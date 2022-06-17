@@ -602,6 +602,7 @@ unittest
 /**************************************
  * Determine the number of days in a month, 1..31.
  * Params:
+ *        year = Gregorian year that contains the month in question
  *        month = 1..12
  */
 
