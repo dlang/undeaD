@@ -1018,6 +1018,12 @@ version (Posix)
             localtime_r(&t, &result);
             return result.tm_gmtoff * ticksPerSecond;
         }
+        else version (OpenBSD)
+        {
+            tm result;
+            localtime_r(&t, &result);
+            return result.tm_gmtoff * ticksPerSecond;
+        }
         else
         {
             localtime(&t);        // this will set timezone
