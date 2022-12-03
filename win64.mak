@@ -1,5 +1,5 @@
-#_ win32.mak
-# Build win32 version of undead
+#_ win64.mak
+# Build win64 version of undead
 # Needs Digital Mars D compiler to build, available free from:
 # http://www.digitalmars.com/d/
 
@@ -7,7 +7,7 @@ DMD=dmd
 DEL=del
 S=src\undead
 O=obj
-B=bin
+B=bin64
 
 TARGET=undead
 
