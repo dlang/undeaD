@@ -8,3 +8,10 @@ targetPath "bin"
 buildType "unittest" {
     buildOptions "debugMode" "debugInfo" "unittests" "deprecationErrors" "warningsAsErrors"
 }
+excludedSourceFiles "src/undead/xml.d"
+dependency "undead:xml" version="*"
+subPackage {
+    name "xml"
+    targetType "library"
+    sourceFiles "src/undead/xml.d"
+}
