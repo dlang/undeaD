@@ -339,6 +339,9 @@ interface OutputStream {
    * Print a formatted string into the stream using writef-style syntax.
    * References: <a href="std_format.html">std.format</a>.
    * Returns: self to chain with other stream commands like flush.
+   *
+   * NOTE: not supported in GDC, since it uses features unimplemented in that
+   * compiler.
    */
   OutputStream writef(...);
   OutputStream writefln(...); /// ditto
@@ -1206,10 +1209,17 @@ class Stream : InputStream, OutputStream {
 
   // writes data with optional trailing newline
   OutputStream writefx(TypeInfo[] arguments, va_list argptr, int newline=false) {
-    doFormat(&doFormatCallback,arguments,argptr);
-    if (newline)
-      writeLine("");
-    return this;
+    version (GNU)
+    {
+      assert(false, "GNU D compiler does not support doFormat");
+    }
+    else
+    {
+      doFormat(&doFormatCallback,arguments,argptr);
+      if (newline)
+        writeLine("");
+      return this;
+    }
   }
 
   /***
