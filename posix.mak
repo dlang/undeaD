@@ -19,9 +19,10 @@ LFLAGS=-L/map/co
 .d.obj :
 	$(DMD) -c $(DFLAGS) $*
 
-SRC= $S/bitarray.d $S/regexp.d $S/datebase.d $S/date.d $S/dateparse.d \
-	 $S/cstream.d $S/stream.d $S/socketstream.d $S/doformat.d $S/string.d \
-	 $S/internal/file.d
+SRC= $S/bitarray.d $S/cstream.d $S/date.d $S/datebase.d $S/dateparse.d \
+	 $S/doformat.d $S/metastrings.d $S/regexp.d $S/signals.d \
+	 $S/socketstream.d $S/stream.d $S/string.d $S/utf.d $S/xml.d \
+	 $S/internal\file.d
 
 
 SOURCE= $(SRC) win32.mak posix.mak LICENSE README.md dub.json
