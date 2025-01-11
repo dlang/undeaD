@@ -18,3 +18,8 @@ Some individual functions have been moved here rather than full Phobos modules. 
 
 * undead.doformat: Contains the `doFormat` function from std.format
 * undead.string: Contains regex style pattern matching functions from std.string
+
+The dmdsamples folder contains a list of code samples which used to be located 
+in the dmd installation directory, but which have not been kept up to date, so
+they are now located here as well.
+
