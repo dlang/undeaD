@@ -7,11 +7,11 @@ DMD=dmd
 DEL=del
 S=src\undead
 O=obj
-B=bin32mscoff
+B=bin32omf
 
 TARGET=undead
 
-DFLAGS=-g -Isrc/ -m32
+DFLAGS=-g -Isrc/ -m32omf
 LFLAGS=-L/map/co
 #DFLAGS=
 #LFLAGS=

@@ -1,5 +1,5 @@
-#_ win32.mak
-# Build win32 version of undead
+#_ win64.mak
+# Build win64 version of undead
 # Needs Digital Mars D compiler to build, available free from:
 # http://www.digitalmars.com/d/
 
@@ -7,7 +7,7 @@ DMD=dmd
 DEL=del
 S=src\undead
 O=obj
-B=bin
+B=bin64
 
 TARGET=undead
 
@@ -19,8 +19,9 @@ LFLAGS=-L/map/co
 .d.obj :
 	$(DMD) -c $(DFLAGS) $*
 
-SRC= $S\bitarray.d $S\regexp.d $S\datebase.d $S\date.d $S\dateparse.d \
-	 $S\cstream.d $S\stream.d $S\socketstream.d $S\doformat.d $S/string.d \
+SRC= $S\bitarray.d $S\cstream.d $S\date.d $S\datebase.d $S\dateparse.d \
+	 $S\doformat.d $S\metastrings.d $S\regexp.d $S\signals.d \
+	 $S\socketstream.d $S\stream.d $S\string.d $S\utf.d $S\xml.d \
 	 $S\internal\file.d
 
 SOURCE= $(SRC) win32.mak win64.mak posix.mak LICENSE README.md dub.json
